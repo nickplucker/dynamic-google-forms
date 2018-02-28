@@ -29,9 +29,11 @@ function updateListChoices(item, sheetName, range){
 function updateQuestion(Question) {
   var form = FormApp.openById(FormID);
   var items = form.getItems();
+  
   for (var i = 0; i < items.length; i += 1){
     for (var j = 0; j < Question.length; j += 1) {
       var item = items[i]
+      
       if (item.getTitle() === Question[j].title){
         updateListChoices(item.asListItem(), Question[j].sheet, Question[j].range);
         break;
